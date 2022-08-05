@@ -6,6 +6,17 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
+   @OneToOne
+   @JoinColumn(name = "car_id")
+   private Car car;
+
+   public User(Car car, String firstName, String lastName, String email) {
+      this.car = car;
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.email = email;
+   }
+
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
@@ -18,6 +29,14 @@ public class User {
 
    @Column(name = "email")
    private String email;
+
+   public Car getCar() {
+      return car;
+   }
+
+   public void setCar(Car car) {
+      this.car = car;
+   }
 
    public User() {}
    
