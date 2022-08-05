@@ -43,6 +43,8 @@ public class MainApp {
          if (user.getCar() != null) {System.out.println("Car = " + user.getCar().getModel());}
          System.out.println();
       }
+      userService.getUserByCar("model3", 3);
+
 
       context.close();
    }
